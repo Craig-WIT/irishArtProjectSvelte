@@ -80,7 +80,7 @@
                 <button on:click={clickHandler(openLocation(location._id))} class="button card-footer-item has-text-black has-background-success-light">
                     Open
                 </button>
-                <button on:click={clickHandler(openAnalytics(location._id))} class="button card-footer-item has-text-black has-background-info-light">
+                <button on:click={clickHandler(openAnalytics(location._id))} class="button card-footer-item has-text-black has-background-danger-info">
                   Analytics
                 </button>
                 <button on:click={deleteHandler(deleteLocation(location._id))} class="button card-footer-item has-text-black has-background-danger-light">
