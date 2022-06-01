@@ -156,4 +156,13 @@ export class IrishArtService {
       return [];
     }
   }
+
+  async getArtwork(id) {
+    try {
+      const response = await axios.get(this.baseUrl + "/api/artworks/" + id);
+      return response.data;
+    } catch (error) {
+      return [];
+    }
+  }
 }

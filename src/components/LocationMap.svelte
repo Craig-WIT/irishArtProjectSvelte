@@ -1,8 +1,8 @@
 <script>
-    import 'leaflet/dist/leaflet.css';
     import {LeafletMap} from '../services/leaflet-map';
     import {getContext, onMount} from "svelte";
     import {user} from "../stores.js"
+    import * as L from "leaflet";
 
     const irishArtService = getContext("IrishArtService");
 

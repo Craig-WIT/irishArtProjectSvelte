@@ -8,6 +8,7 @@
   import Signup from "./pages/Signup.svelte"
   import Dashboard from "./pages/Dashboard.svelte";
   import Location from "./pages/Location.svelte";
+  import LocationAnalytics from "./pages/LocationAnalytics.svelte";
   import Router from "svelte-spa-router";
   
 
@@ -22,6 +23,7 @@
     "/location": Location,
     "/about": About,
     "/analytics": Analytics,
+    "/locationAnalytics": LocationAnalytics,
 
   }
 </script>

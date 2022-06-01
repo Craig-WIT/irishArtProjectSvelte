@@ -18,7 +18,7 @@ export class LeafletMap {
         "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
     }),
   };
-
+  
   constructor(id, descriptor, activeLayer = "") {
     let defaultLayer = this.baseLayers.Terrain;
     if (activeLayer) {
@@ -31,6 +31,11 @@ export class LeafletMap {
       zoomControl: false,
       layers: [defaultLayer],
     });
+    this.imap.on('click', this.onMapClick); //new code
+  }
+
+  onMapClick(e) {                         //new function
+    alert(`You clicked the map on ${  e.latlng.toString()}`)
   }
 
   addLayer(title, layer) {
@@ -64,7 +69,7 @@ export class LeafletMap {
 
   moveTo(zoom, location) {
     this.imap.setZoom(zoom);
-    this.imap.panTo(new L.LatLng(location.lat, location.lng));
+    this.imap.flyTo(new L.LatLng(location.lat, location.lng));
   }
 
   zoomTo(location) {

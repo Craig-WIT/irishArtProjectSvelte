@@ -11,7 +11,11 @@
     async function artworkAdded(event) {
     listArtworks.updateList();
     artworkMap.addArtworkMarker(event.detail.artwork);
-  }
+    }
+
+    async function moveMap(event){
+      artworkMap.moveMap(event.detail.artwork.lat,event.detail.artwork.lng)
+    }
 
 </script>
 
@@ -27,7 +31,7 @@
 <section class="section">
   <div class="container">
   <div class="columns is-4 is-variable is-multiline">
-    <ListArtworks bind:this={listArtworks}/>
+    <ListArtworks bind:this={listArtworks}  on:message={moveMap}/>
   </div>
   </div>
 </section>

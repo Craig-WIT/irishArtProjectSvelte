@@ -19,6 +19,7 @@
     map.showZoomControl();
     map.addLayerGroup('Artworks');
     map.showLayerControl();
+    
 
     const activeLocation = await irishArtService.getLocationById($location.id);
     artworkList = activeLocation.artworks;
@@ -35,6 +36,11 @@
   export function deleteArtworkMarker() {
     map.removeLayerGroup('Locations');
     }
+
+  export function moveMap(lat,lng) {
+    map.moveTo(17, {lat: lat, lng: lng});
+    }
+    
   </script>
   
   <div class="box" id="artwork-map" style="height:600px">

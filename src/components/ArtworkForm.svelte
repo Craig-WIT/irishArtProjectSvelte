@@ -48,6 +48,7 @@
   </script>
 
 <form on:submit|preventDefault={addArtwork}>
+  <div class="box box-link-hover-shadow has-background-info-light">
     <strong>Enter Artwork Details:</strong>
     <div class="field is-horizontal">
       <div class="field-body">
@@ -83,4 +84,5 @@
     </div>
     <button class="button is-primary">Add Artwork</button>
     <strong>{message}</strong>
+  </div>
   </form>

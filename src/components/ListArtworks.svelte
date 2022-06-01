@@ -1,10 +1,12 @@
 <script>
-  import {getContext, onMount} from 'svelte'
+  import {createEventDispatcher,getContext, onMount} from 'svelte'
   import {location} from "../stores.js"
 
+  const dispatch = createEventDispatcher();
   const irishArtService = getContext("IrishArtService");
   let artworkList = [];
   let deleteHandler = null;
+  let clickHandler = null;
 
   onMount(async () => {
     const activeLocation = await irishArtService.getLocationById($location.id);
@@ -19,6 +21,11 @@
     async function deleteArtwork(id){
         await irishArtService.deleteArtwork(id);
         await updateList();
+    }
+
+    async function moveMap(id){
+        const artwork = await irishArtService.getArtwork(id);
+        dispatch("message",{artwork: artwork});
     }
 </script>
 
@@ -44,8 +51,8 @@
             </div>
   
             <div class="card-footer has-text-weight-semibold has-background-link-light">
-                <button class="button card-footer-item has-text-black has-background-success-light">
-                    Add Image
+                <button on:click={clickHandler(moveMap(artwork._id))} class="button card-footer-item has-text-black has-background-success-light">
+                    Show on Map
                 </button>
                 <button on:click={deleteHandler(deleteArtwork(artwork._id))} class="button card-footer-item has-text-black has-background-danger-light">
                     Delete

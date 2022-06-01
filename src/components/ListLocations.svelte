@@ -38,6 +38,15 @@
     }
     }
 
+    async function openAnalytics(id){
+      let location = await irishArtService.getLocationById(id)
+    if (location) {
+      push("/locationAnalytics");
+    } else {
+      errorMessage = "Error viewing analyics";
+    }
+    }
+
   </script>
 
 {#if errorMessage}
@@ -70,6 +79,9 @@
             <div class="card-footer has-text-weight-semibold has-background-link-light">
                 <button on:click={clickHandler(openLocation(location._id))} class="button card-footer-item has-text-black has-background-success-light">
                     Open
+                </button>
+                <button on:click={clickHandler(openAnalytics(location._id))} class="button card-footer-item has-text-black has-background-info-light">
+                  Analytics
                 </button>
                 <button on:click={deleteHandler(deleteLocation(location._id))} class="button card-footer-item has-text-black has-background-danger-light">
                     Delete
