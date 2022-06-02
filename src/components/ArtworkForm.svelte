@@ -14,7 +14,7 @@
     let description = "";
     let selectedCategory = "";
 
-    let message = "Feel free to add a new artwork"
+    let message = "Feel free to add a new artwork:"
 
     export async function addArtwork() {
         const artworkLocation = await irishArtService.getLocationById($location.id);
@@ -49,7 +49,7 @@
 
 <form on:submit|preventDefault={addArtwork}>
   <div class="box box-link-hover-shadow has-background-info-light">
-    <strong>Enter Artwork Details:</strong>
+    <strong>{message}</strong>
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
@@ -83,6 +83,5 @@
       </div>
     </div>
     <button class="button is-primary">Add Artwork</button>
-    <strong>{message}</strong>
   </div>
   </form>

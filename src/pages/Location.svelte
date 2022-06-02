@@ -19,6 +19,15 @@
 
 </script>
 
+<style>  
+  #cardStyle{
+      width: 300px;
+      height: 270px;
+      border-radius: 10px;
+      border: 2px solid black;
+  }
+  </style>
+
 <Menu/>
 <section class="section columns is-vcentered">
   <div class="title column has-text-centered">

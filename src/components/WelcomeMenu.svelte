@@ -10,7 +10,7 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button" id="login" href="/#/login"> Log in </a> <a class="button" id="signup" href="/#/signup"> Sign up </a>
+          <a class="button is-primary" id="login" href="/#/login"> Log in </a> <a class="button is-light" id="signup" href="/#/signup"> Sign up </a>
         </div>
       </div>
     </div>

@@ -10,9 +10,10 @@
     let errorMessage = "";
     let deleteHandler = null;
     let clickHandler = null;
+    let loggedInUser = null;
   
     onMount(async () => {
-      const loggedInUser = await irishArtService.getUserByEmail($user.email)
+      loggedInUser = await irishArtService.getUserByEmail($user.email)
       const userid = loggedInUser._id;
       locationList = await irishArtService.getUserLocations(userid);
     });
@@ -49,6 +50,28 @@
 
   </script>
 
+<style>
+.card {
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 25px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+#cardStyle{
+        width: 300px;
+        height: 270px;
+        border-radius: 10px;
+        border: 2px solid black;
+    }
+
+.card-header {
+    justify-content: center;
+    padding: 10px 0px;
+}
+</style>
+
 {#if errorMessage}
   <div class="section">
     {errorMessage}
@@ -74,13 +97,14 @@
                 <p>Sculptures: {location.sculptures}</p>
                 <p>Murals: {location.murals}</p>
                 <p>Street Art: {location.streetArt}</p>
+                <p>Added by: {loggedInUser.firstName} {loggedInUser.lastName}</p>
             </div>
   
             <div class="card-footer has-text-weight-semibold has-background-link-light">
                 <button on:click={clickHandler(openLocation(location._id))} class="button card-footer-item has-text-black has-background-success-light">
                     Open
                 </button>
-                <button on:click={clickHandler(openAnalytics(location._id))} class="button card-footer-item has-text-black has-background-danger-info">
+                <button on:click={clickHandler(openAnalytics(location._id))} class="button card-footer-item has-text-black has-background-info-light">
                   Analytics
                 </button>
                 <button on:click={deleteHandler(deleteLocation(location._id))} class="button card-footer-item has-text-black has-background-danger-light">

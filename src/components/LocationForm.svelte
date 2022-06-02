@@ -10,7 +10,7 @@
     let lat = "";
     let lng = "";
 
-    let message = "Feel free to add a new location"
+    let message = "Feel free to add a new location:"
 
     export async function addLocation() {
       const loggedInUser = await irishArtService.getUserByEmail($user.email)
@@ -39,7 +39,7 @@
 
 <form on:submit|preventDefault={addLocation}>
     <div class="box box-link-hover-shadow has-background-info-light">
-    <strong>Enter Location Details:</strong>
+      <strong>{message}</strong>
       <div class="field is-horizontal">
         <div class="field-body">
           <div class="field">
@@ -54,6 +54,5 @@
         </div>
       </div>
       <button class="button is-primary">Add Location</button>
-      <strong>{message}</strong>
     </div>
 </form>

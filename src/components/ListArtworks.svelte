@@ -29,6 +29,28 @@
     }
 </script>
 
+<style>
+    .card {
+        max-width: 300px;
+        margin: 0 auto;
+        margin-top: 25px;
+        border-radius: 10px;
+        border: 2px solid black;
+    }
+    
+    #cardStyle{
+        width: 300px;
+        height: 270px;
+        border-radius: 10px;
+        border: 2px solid black;
+    }
+    
+    .card-header {
+        justify-content: center;
+        padding: 10px 0px;
+    }
+    </style>
+
 {#each artworkList as artwork}
 <div class="column is-one-quarter">
           <div class="card has-background-info-light">
