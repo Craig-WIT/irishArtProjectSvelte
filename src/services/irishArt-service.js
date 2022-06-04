@@ -168,7 +168,7 @@ export class IrishArtService {
 
   async uploadImage(id,image) {
     try {
-      const response = await axios.post(this.baseUrl + "/api/locations/" + id + "image",image);
+      const response = await axios.post(this.baseUrl + "/api/locations/" + id + "/image",image);
       return response.status == 201;
     } catch (error) {
       return [];
